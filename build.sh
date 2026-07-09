@@ -12,3 +12,12 @@ if not User.objects.filter(username='admin').exists():
 else:
     print('Vec postoji.')
 "
+
+python manage.py shell -c "
+from accounts.models import User
+if not User.objects.filter(username='admin1').exists():
+    User.objects.create_superuser(username='admin1', email='lejla.catovic18@gmail.com', password='Admin1234!!', role='admin')
+    print('Novi superuser kreiran!')
+else:
+    print('Novi superuser vec postoji.')
+"
